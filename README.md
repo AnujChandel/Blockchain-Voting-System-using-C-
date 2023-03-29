@@ -9,8 +9,9 @@ In beginning the genesis block is already been created by the system. Upon new v
 # Logical structures used
 
 1. Linked list
-2. file making and overwriting
-3. Hash function 
+2. File Stream
+3. Hash function
+4. String Stream
 
 # Working
 
