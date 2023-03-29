@@ -6,6 +6,12 @@ A simple voting system using c++ and the Basic knowledge of blockchain. How to w
 
 In beginning the genesis block is already been created by the system. Upon new vote, the previous hash and the data will be concatinated and the new hash will be generated. The data will be stored in memory and the last hash will be stored in a .txt file. 
 
+# Logical structures used
+
+1. Linked list
+2. file making and overwriting
+3. Hash function 
+
 # Working
 
 As hash is unique the last hash that is stored is always unique. The last hash will be stored in a .txt file which helps to check if the data is been tempered or not.
