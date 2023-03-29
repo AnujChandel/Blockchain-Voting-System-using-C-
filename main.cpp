@@ -110,71 +110,60 @@ void print(block* headref) {
 }
 
 void tocheckwinner(block* headref){
-	int count1=0,count2=0,count3=0;
-	
-				
-	while(headref!=NULL){
-	
-	if(headref->data=="1")
-	{count1++;}
-	if(headref->data=="2")
-	{count2++;}
-	if(headref->data=="3")
-	{count3++;}
-	
-	headref=headref->next;
-	
+    int count1 = 0, count2 = 0, count3 = 0;
+    while(headref != NULL){
+        if(headref->data == "1")
+            count1++;
+        if(headref->data == "2")
+            count2++;
+        if(headref->data == "3")
+            count3++;
+        headref = headref->next;
+    }
+    if(count1 > count2 && count1 > count3){
+        cout << "Winner is: RAHUL SINGH" << endl;
+        return;
+    }
+    if(count2 > count1 && count2 > count3){
+        cout << "Winner is: KOMAL GUPTA" << endl;
+        return;
+    }
+    if(count3 > count1 && count3 > count2){
+        cout << "Winner is: ABHISHEK TOMAR" << endl;
+        return;
+    }
+    else{
+        cout << "\nNo one is the winner\n";
+    }
 }
-	
-	if(count1>count2 && count1>count3)
-	{cout<<"winner is :RAHUL SINGH";return ;}	
-	if(count2>count1 && count2>count3)
-	{cout<<"winner is :KOMAL GUPTA";return ;}
-	if(count3>count1 && count3>count2)
-	{cout<<"winner is :ABHISHEK TOMAR";return ;}
-	
-	else {cout<<"\nNo one is the winner\n";
-	}
-}
-
-
 
 int main(){
+    block* head=NULL;
+    string n;
+    genesis_block(&head);
 
-block* head=NULL;
-string n;
-  
-	genesis_block(&head);
-	
-	
-	
-	int exit=5 ,temp;
-	
-	while(exit!=0){
-	if(!verify(head)){
-		cout<<"blockchain is compromised\n";	return 0; 
-		
-		 	}
-	cout<<"\nChoose the candidate to vote:\n\n	1.RAHUL SINGH\n	2.KOMAL GUPTA\n	3.ABHISHEK TOMAR\n	4.Any other number to choose NOTA\n";
-	cout<<"->"<<" ";
-		getline(cin,n);
-	
-	new_block(&head,n);
-	cout<<"\nTO CONTINUE PRESS ANY NUMBER\n\nTO EXIT PRESS '0'\n";
-	cin>>exit;
-	
-	cin.ignore();
-		}
-		cout<<"THE ORDER OF THE VOTES IS : ";
-		print(head);
-		cout<<"\nPRESS 1 TO CHECK THE WINNER OR ANY NUMBER TO EXIT :	";
-		
-		cin>>temp;
-	if(temp==1)	
-	{
-		tocheckwinner(head);	
-	}
-	else {
-		return 0;
-	}		
+    int exit=5 ,temp;
+    while(exit!=0){
+        if(!verify(head)){
+            cout<<"blockchain is compromised\n";
+            return 0; 
+        }
+        cout<<"\nChoose the candidate to vote:\n\n	1.RAHUL SINGH\n	2.KOMAL GUPTA\n	3.ABHISHEK TOMAR\n	4.Any other number to choose NOTA\n";
+        cout<<"->"<<" ";
+        getline(cin,n);
+        new_block(&head,n);
+        cout<<"\nTO CONTINUE PRESS ANY NUMBER\n\nTO EXIT PRESS '0'\n";
+        cin>>exit;
+        cin.ignore();
+    }
+    cout<<"THE ORDER OF THE VOTES IS : ";
+    print(head);
+    cout<<"\nPRESS 1 TO CHECK THE WINNER OR ANY NUMBER TO EXIT :	";
+    cin>>temp;
+    if(temp==1){	
+        tocheckwinner(head);	
+    }
+    else {
+        return 0;
+    }		
 }
